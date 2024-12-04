@@ -17,14 +17,17 @@ motor Drive6 = motor(PORT14, ratio6_1, false);
 controller Controller1 = controller(primary);
 inertial InertialSensor = inertial(PORT16);
 digital_out clamp = digital_out(Brain.ThreeWirePort.A);
-motor Intake = motor(PORT10, ratio6_1, false);
-digital_out doink = digital_out(Brain.ThreeWirePort.B);
+motor Intake = motor(PORT10, ratio6_1, true);
+digital_out doink = digital_out(Brain.ThreeWirePort.H);
 rotation Rotation3 = rotation(PORT3, false);
 motor liftMotorA = motor(PORT2, ratio18_1, false);
 motor liftMotorB = motor(PORT4, ratio18_1, true);
 motor_group lift = motor_group(liftMotorA, liftMotorB);
 optical Optical = optical(PORT9);
-potV2 Potentiometer = potV2(Brain.ThreeWirePort.H);
+potV2 Potentiometer = potV2(Brain.ThreeWirePort.C);
+digital_out hang = digital_out(Brain.ThreeWirePort.G);
+rotation pod = rotation(PORT15, false);
+digital_out IntakeLift = digital_out(Brain.ThreeWirePort.B);
 
 // VEXcode generated functions
 // define variable for remote controller enable/disable

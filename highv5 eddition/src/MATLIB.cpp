@@ -11,33 +11,34 @@
 //Drivetrain control with trapezoidal motion profiles and PD, made by Matthew Estevez.
 
 double gearRatio = 0.75; // (Driven Gear Teeth) / (Driving Gear Teeth), values less than 1 are torque ratios, greater than 1 are speed ratios.
-double wheelDiameter = 2.75; // Wheel diameter in inches. Old vex 4" wheels are actually 4.125".
+double wheelDiameter = 3.25; // Wheel diameter in inches. Old vex 4" wheels are actually 4.125".
 double startingAngle = 0; // Angle which the robot starts at during autonomous. Typically, you want the direction your driver is facing to be 0 degrees.
+double podDiameter = 2; // Tracking wheel diameter in inches.
 
 //// Move PD
 
 double moveKp = 1.8; // Proportional constant value, should be around 1.8. Higher values make the movement more accurate, but cause oscillations.
 double moveKd = 0.9; // Derivative constant value, should be around half of moveKp. Higher values dampen oscillations, but might cause the robot to react to strongly (Robot will vibrate).
-double moveStraightKp = 4.0; // Alignment constant value, determines how much power to put in to keep the drivetrain straight. Should be around 4.
-double moveThreshold = 0.02; // The + or - amount of inches the move can be off by to exit the loop. should be around 0.1.
+double moveStraightKp = 8.0; // Alignment constant value, determines how much power to put in to keep the drivetrain straight. Should be around 8.
+double moveThreshold = 0.1; // The + or - amount of inches the move can be off by to exit the loop. should be around 0.1.
 double movePowerLimit = 80; // The maximum % voltage the drivetrain motors can be applied. Should be around 50 - 80.
 //Move PD Timing
 double moveThresholdTime = 80; // The amount of time in miliseconds it takes to exit the PD loop when it is within the threshold. Never less than 100.
 double moveTimeoutTime = 5000; // The amount of time in miliseconds it takes to interrupt the PD loop if it is not within the threshold.
 //Move Motion Profile // If you do not want to do motion profiled movements, set all these values to 100. I recommend not changing anything.
 double movePowerStart = 40; // The % voltage the drivetrain starts off at. Should be around 30 - 60. 
-double movePowerEnd = 13; // The maximum % voltage the drivetrain ends the movement with. Should be around 15 - 30.
+double movePowerEnd = 12; // The maximum % voltage the drivetrain ends the movement with. Should be around 15 - 30.
 double moveAcceleration = 36; // The change in % voltage per inch when the robot is first accelerating. Should be around 10.
-double moveDeceleration = 2.5; // The change in % voltage per inch when the robot is decelerating. Should be around 10. Higher values will make stops faster.
+double moveDeceleration = 2.4; // The change in % voltage per inch when the robot is decelerating. Should be around 10. Higher values will make stops faster.
 
 //// Turn PD
 
-double turnKp = 1.4; // Proportional value, should be around 1.4. Higher values make the movement more accurate, but cause oscillations.
-double turnKd = 0.6; // Derivative value, should be around half of turnKp. Higher values dampen oscillations, but might cause the robot to react too strongly.
-double turnThreshold = 1.2; // The + or - amount of degrees the turn can be off by to exit the loop. Should be around 1.
+double turnKp = 1.6; // Proportional value, should be around 1.4. Higher values make the movement more accurate, but cause oscillations.
+double turnKd = 0.8; // Derivative value, should be around half of turnKp. Higher values dampen oscillations, but might cause the robot to react too strongly.
+double turnThreshold = 1.3; // The + or - amount of degrees the turn can be off by to exit the loop. Should be around 1.
 double turnPowerLimit = 80; // The maximum % voltage the drivetrain motors can be applied. Should be around 50 - 80.
 //Turn PD Timing
-double turnThresholdTime = 80; // The amount of time in miliseconds it takes to exit the PD loop when it is within the threshold. Never less than 100.
+double turnThresholdTime = 100; // The amount of time in miliseconds it takes to exit the PD loop when it is within the threshold. Never less than 100.
 double turnTimeoutTime = 3000; // The amount of time in miliseconds it takes to interrupt the PD loop if it is not within the threshold.
 //Turn Motion Profile // If you do not want to do motion profiled turns, set all these values to 100. I recommend not changing anything.
 double turnPowerEnd = 15; // The maximum % voltage the drivetrain ends the turn with. Should be around 15.
@@ -65,7 +66,7 @@ double inertialDerivativeGain = 4; // Decreases derivative when within x degrees
 #include "vex.h"
 
 const double voltCon = 0.12;
-const double inchConversion = (360/(wheelDiameter*3.14159265358979))/gearRatio;
+const double inchConversion = (360/(podDiameter*3.14159265358979));
 double currentAngle = startingAngle;
 double Inertial = startingAngle;
 motor* leftDrive[4];
@@ -165,6 +166,7 @@ void drivePositionReset() // Sets measuring motors to position 0.
 {
  leftDrive[0]->resetPosition();
  rightDrive[0]->resetPosition();
+ pod.resetPosition();
 }
 
 double motionProfile(double x, double endPoint, double slope1, double slope2, double yMin1, double yMin2, double yMax) // Creates a trapezoidal function for motion profiling.
@@ -218,96 +220,104 @@ void checkExitConditions(double error, double threshold, double thresholdTime, d
 
 int drivetrainControl() // Drivetrain handler, runs PD loops and driver control.
 {
- 
- InertialSensor.changed(updateHeading);
- while (true)
- {
- if(driverControl)
- {
- if (cubicArcadeControl) // arcade joystick style, with cubic output curves.
- {
- leftDriverPower = pow(Controller1.Axis3.position(percent), 3)/(10000) + pow(Controller1.Axis1.position(percent), 3)/(10000);
- rightDriverPower = pow(Controller1.Axis3.position(percent), 3)/(10000) - pow(Controller1.Axis1.position(percent), 3)/(10000);
- }
- if (arcadeControl) // arcade joystick style.
- {
- leftDriverPower = Controller1.Axis3.position(percent) + Controller1.Axis1.position(percent);
- rightDriverPower = Controller1.Axis3.position(percent) - Controller1.Axis1.position(percent);
- }
- if (cubicTankControl) // tank joystick style, with cubic output curves.
- {
- leftDriverPower = pow(Controller1.Axis3.position(percent), 3)/(10000);
- rightDriverPower = pow(Controller1.Axis2.position(percent), 3)/(10000);
- }
- if (tankControl) // tank joystick style.
- {
- leftDriverPower = Controller1.Axis3.position(percent);
- rightDriverPower = Controller1.Axis2.position(percent);
- }
- }else{leftDriverPower = 0; rightDriverPower = 0;}
- 
- if(driveMode == MOVE) //PD loop and motion profile for moving.
- {
- double error = (target - ((rightDrive[0]->position(degrees) + leftDrive[0]->position(degrees))/2))/inchConversion;
- double power = ((error * (moveKp / voltCon)) + (-(rightDrive[0]->velocity(percent) + leftDrive[0]->velocity(percent))/2) * moveKd);
- double powerLimit = motionProfile(fabs(((rightDrive[0]->position(degrees) + leftDrive[0]->position(degrees))/2) / inchConversion), fabs(target/inchConversion), moveAcceleration, -moveDeceleration, movePowerStart, movePowerEnd, movePowerLimit);
- double anglePower = (currentAngle - Inertial) * moveStraightKp; 
- if (fabs(power) > powerLimit){ if(power > 0){power = powerLimit;} else{power = -powerLimit;} } 
- leftAutonPower = power + anglePower;
- rightAutonPower = power - anglePower;
- checkExitConditions(error, moveThreshold*inchConversion, moveThresholdTime, moveTimeoutTime);
- }
+  InertialSensor.changed(updateHeading);
+  while (true)
+  {
+    if (driverControl)
+    {
+      if (cubicArcadeControl){ // arcade joystick style, with cubic output curves.
+        leftDriverPower = pow(Controller1.Axis3.position(percent), 3) / 10000 + pow(Controller1.Axis1.position(percent), 3) / 10000;
+        rightDriverPower = pow(Controller1.Axis3.position(percent), 3) / 10000 - pow(Controller1.Axis1.position(percent), 3) / 10000;
+      }
+      if (arcadeControl){ // arcade joystick style.
+        leftDriverPower = Controller1.Axis3.position(percent) + Controller1.Axis1.position(percent);
+        rightDriverPower = Controller1.Axis3.position(percent) - Controller1.Axis1.position(percent);
+      }
+      if (cubicTankControl){ // tank joystick style, with cubic output curves.
+        leftDriverPower = pow(Controller1.Axis3.position(percent), 3) / 10000;
+        rightDriverPower = pow(Controller1.Axis2.position(percent), 3) / 10000;
+      }
+      if (tankControl){ // tank joystick style.
+        leftDriverPower = Controller1.Axis3.position(percent);
+        rightDriverPower = Controller1.Axis2.position(percent);
+      }
+    }
+    else
+    {
+        leftDriverPower = 0;
+        rightDriverPower = 0;
+    }
 
- if(driveMode == TURN) //PD loop and motion profile for turning.
- {
- double error = target - Inertial;
- double derivative = (rightDrive[0]->velocity(percent) + rightDrive[0]->velocity(percent))/2;
- if(fabs(error) < inertialDerivativeGain){ derivative *= fabs(error)/inertialDerivativeGain; };
- double power = ((error * (turnKp / voltCon)) + (derivative) * (turnKd / voltCon));
- double powerLimit = motionProfile(0, fabs(error), 100, -turnDeceleration, 100, turnPowerEnd, turnPowerLimit);
- if (fabs(power) > powerLimit){ if(power > 0){power = powerLimit;} else{power = -powerLimit;} }
- leftAutonPower = power;
- rightAutonPower = -power;
- checkExitConditions(error, turnThreshold, turnThresholdTime, turnTimeoutTime);
- }
+    if (driveMode == MOVE) // PD loop and motion profile for moving.
+    { 
+      double error = (target - pod.position(deg)) / (360 / (podDiameter * 3.1416));
+      double power = ((error * (moveKp / voltCon)) + (-100 * (pod.velocity(rpm)/((wheelDiameter*(gearRatio*600))/2))) * moveKd);
+      double powerLimit = motionProfile(fabs(((pod.position(deg)) / (360 / (podDiameter * 3.1416)))),fabs(target / (360 / (podDiameter * 3.1416))),moveAcceleration, -moveDeceleration, movePowerStart, movePowerEnd, movePowerLimit);
+      double anglePower = (currentAngle - Inertial) * moveStraightKp;
+      if (fabs(power) > powerLimit){
+        if (power > 0){power = powerLimit;}
+        else{power = -powerLimit;}
+      }
+      leftAutonPower = power + anglePower;
+      rightAutonPower = power - anglePower;
+      checkExitConditions(error, moveThreshold * inchConversion, moveThresholdTime, moveTimeoutTime);
+    }
 
- if(driveMode == SWINGLEFT) //PD loop and motion profile for swinging left.
- {
- double error = target - Inertial;
- double derivative = rightDrive[0]->velocity(percent);
- if(fabs(error) < inertialDerivativeGain){ derivative *= fabs(error)/inertialDerivativeGain; };
- double power = ((error * (swingKp / voltCon)) + (derivative) * (swingKd / voltCon));
- double powerLimit = motionProfile(0, fabs(error), 100, -swingDeceleration, 100, swingPowerEnd, swingPowerLimit);
- if (fabs(power) > powerLimit){ if(power > 0){power = powerLimit;} else{power = -powerLimit;} }
- rightAutonPower = -power;
- leftAutonPower = 0;
- checkExitConditions(error, swingThreshold, swingThresholdTime, swingTimeoutTime);
- }
+    if (driveMode == TURN) // PD loop and motion profile for turning.
+    {
+      double error = target - Inertial;
+      double derivative = (rightDrive[0]->velocity(percent) + rightDrive[0]->velocity(percent)) / 2;
+      if (fabs(error) < inertialDerivativeGain){derivative *= fabs(error) / inertialDerivativeGain;}
+      double power = ((error * (turnKp / voltCon)) + (derivative) * (turnKd / voltCon));
+      double powerLimit = motionProfile(0, fabs(error), 100, -turnDeceleration, 100, turnPowerEnd, turnPowerLimit);
+      if (fabs(power) > powerLimit){
+        if (power > 0){power = powerLimit;}
+        else{power = -powerLimit;}
+      }
+      leftAutonPower = power;
+      rightAutonPower = -power;
+      checkExitConditions(error, turnThreshold, turnThresholdTime, turnTimeoutTime);
+    }
 
- if(driveMode == SWINGRIGHT) //PD loop and motion profile for swinging right.
- {
- double error = target - Inertial;
- double derivative = -leftDrive[0]->velocity(percent);
- if(fabs(error) < inertialDerivativeGain){ derivative *= fabs(error)/inertialDerivativeGain; };
- double power = ((error * (swingKp / voltCon)) + (derivative) * (swingKd / voltCon));
- double powerLimit = motionProfile(0, fabs(error), 100, -swingDeceleration, 100, swingPowerEnd, swingPowerLimit);
- if (fabs(power) > powerLimit){ if(power > 0){power = powerLimit;} else{power = -powerLimit;} }
- leftAutonPower = power;
- rightAutonPower = 0;
- checkExitConditions(error, swingThreshold, swingThresholdTime, swingTimeoutTime);
- }
+    if (driveMode == SWINGLEFT) // PD loop and motion profile for swinging left.
+    {
+      double error = target - Inertial;
+      double derivative = rightDrive[0]->velocity(percent);
+      if (fabs(error) < inertialDerivativeGain){derivative *= fabs(error) / inertialDerivativeGain;}
+      double power = ((error * (swingKp / voltCon)) + (derivative) * (swingKd / voltCon));
+      double powerLimit = motionProfile(0, fabs(error), 100, -swingDeceleration, 100, swingPowerEnd, swingPowerLimit);
+      if (fabs(power) > powerLimit){
+        if (power > 0){power = powerLimit;}
+        else{power = -powerLimit;}
+      }
+      rightAutonPower = -power;
+      leftAutonPower = 0;
+      checkExitConditions(error, swingThreshold, swingThresholdTime, swingTimeoutTime);
+    }
 
- if (driveMode == STOP) //Stops auton control.
- {
- leftAutonPower = 0;
- rightAutonPower = 0;
- }
-
- if (leftAutonPower != 0 || leftDriverPower != 0){ driveLeft((leftAutonPower + leftDriverPower) * voltCon); } else {driveLeftStop();} //Apply Power if auton or driver power is not zero, other wise stop motors.
- if (rightAutonPower != 0 || rightDriverPower != 0){ driveRight((rightAutonPower + rightDriverPower) * voltCon); } else {driveRightStop();}
- wait(10, msec);
- }
- return 0;
+    if (driveMode == SWINGRIGHT) // PD loop and motion profile for swinging right.
+    {
+      double error = target - Inertial;
+      double derivative = -leftDrive[0]->velocity(percent);
+      if (fabs(error) < inertialDerivativeGain){derivative *= fabs(error) / inertialDerivativeGain;}
+      double power = ((error * (swingKp / voltCon)) + (derivative) * (swingKd / voltCon));
+      double powerLimit = motionProfile(0, fabs(error), 100, -swingDeceleration, 100, swingPowerEnd, swingPowerLimit);
+      if (fabs(power) > powerLimit){
+        if (power > 0){power = powerLimit;}
+        else{power = -powerLimit;}
+      }
+      leftAutonPower = power;
+      rightAutonPower = 0;
+      checkExitConditions(error, swingThreshold, swingThresholdTime, swingTimeoutTime);
+    }
+    if (driveMode == STOP){leftAutonPower = 0;rightAutonPower = 0;}
+    if (leftAutonPower != 0 || leftDriverPower != 0){driveLeft((leftAutonPower + leftDriverPower) * voltCon);}
+    else{driveLeftStop();}
+    if (rightAutonPower != 0 || rightDriverPower != 0){driveRight((rightAutonPower + rightDriverPower) * voltCon);}
+    else{driveRightStop();}
+    wait(10, msec);
+  }
+  return 0;
 }
 
 double coterm(double angle) //Calculates the closest coterminal angle to the parameter in the range -180 to 180.

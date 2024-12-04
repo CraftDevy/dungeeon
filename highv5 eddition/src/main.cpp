@@ -1,6 +1,280 @@
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // Robot Configuration:
 // [Name]               [Type]        [Port(s)]
+// Drive1               motor         20              
+// Drive2               motor         19              
+// Drive3               motor         17              
+// Drive4               motor         12              
+// Drive5               motor         13              
+// Drive6               motor         14              
+// Controller1          controller                    
+// InertialSensor       inertial      16              
+// clamp                digital_out   A               
+// Intake               motor         10              
+// doink                digital_out   H               
+// Rotation3            rotation      3               
+// lift                 motor_group   2, 4            
+// Optical              optical       9               
+// Potentiometer        potV2         C               
+// hang                 digital_out   G               
+// pod                  rotation      15              
+// IntakeLift           digital_out   B               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Drive1               motor         20              
+// Drive2               motor         19              
+// Drive3               motor         17              
+// Drive4               motor         12              
+// Drive5               motor         13              
+// Drive6               motor         14              
+// Controller1          controller                    
+// InertialSensor       inertial      16              
+// clamp                digital_out   A               
+// Intake               motor         10              
+// doink                digital_out   E               
+// Rotation3            rotation      3               
+// lift                 motor_group   2, 4            
+// Optical              optical       9               
+// Potentiometer        potV2         C               
+// hang                 digital_out   G               
+// pod                  rotation      15              
+// IntakeLift           digital_out   B               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Drive1               motor         20              
+// Drive2               motor         19              
+// Drive3               motor         17              
+// Drive4               motor         12              
+// Drive5               motor         13              
+// Drive6               motor         14              
+// Controller1          controller                    
+// InertialSensor       inertial      16              
+// clamp                digital_out   A               
+// Intake               motor         10              
+// doink                digital_out   E               
+// Rotation3            rotation      3               
+// lift                 motor_group   2, 4            
+// Optical              optical       9               
+// Potentiometer        potV2         H               
+// hang                 digital_out   G               
+// pod                  rotation      15              
+// IntakeLift           digital_out   B               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Drive1               motor         20              
+// Drive2               motor         19              
+// Drive3               motor         17              
+// Drive4               motor         12              
+// Drive5               motor         13              
+// Drive6               motor         14              
+// Controller1          controller                    
+// InertialSensor       inertial      16              
+// clamp                digital_out   A               
+// Intake               motor         10              
+// doink                digital_out   E               
+// Rotation3            rotation      3               
+// lift                 motor_group   2, 4            
+// Optical              optical       9               
+// Potentiometer        potV2         H               
+// hang                 digital_out   G               
+// pod                  rotation      15              
+// IntakeLift           digital_out   F               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Drive1               motor         20              
+// Drive2               motor         19              
+// Drive3               motor         17              
+// Drive4               motor         12              
+// Drive5               motor         13              
+// Drive6               motor         14              
+// Controller1          controller                    
+// InertialSensor       inertial      16              
+// clamp                digital_out   A               
+// Intake               motor         10              
+// doink                digital_out   B               
+// Rotation3            rotation      3               
+// lift                 motor_group   2, 4            
+// Optical              optical       9               
+// Potentiometer        potV2         H               
+// hang                 digital_out   G               
+// pod                  rotation      15              
+// IntakeLift           digital_out   F               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Drive1               motor         20              
+// Drive2               motor         19              
+// Drive3               motor         17              
+// Drive4               motor         12              
+// Drive5               motor         13              
+// Drive6               motor         14              
+// Controller1          controller                    
+// InertialSensor       inertial      16              
+// clamp                digital_out   A               
+// Intake               motor         10              
+// doink                digital_out   B               
+// Rotation3            rotation      3               
+// lift                 motor_group   2, 4            
+// Optical              optical       9               
+// Potentiometer        potV2         H               
+// hang                 digital_out   G               
+// pod                  rotation      15              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Drive1               motor         20              
+// Drive2               motor         19              
+// Drive3               motor         17              
+// Drive4               motor         12              
+// Drive5               motor         13              
+// Drive6               motor         14              
+// Controller1          controller                    
+// InertialSensor       inertial      16              
+// clamp                digital_out   A               
+// Intake               motor         10              
+// doink                digital_out   B               
+// Rotation3            rotation      3               
+// lift                 motor_group   2, 4            
+// Optical              optical       9               
+// Potentiometer        potV2         H               
+// hang                 digital_out   G               
+// pod                  rotation      15              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Drive1               motor         20              
+// Drive2               motor         19              
+// Drive3               motor         17              
+// Drive4               motor         12              
+// Drive5               motor         13              
+// Drive6               motor         14              
+// Controller1          controller                    
+// InertialSensor       inertial      16              
+// clamp                digital_out   A               
+// Intake               motor         10              
+// doink                digital_out   B               
+// Rotation3            rotation      3               
+// lift                 motor_group   2, 4            
+// Optical              optical       9               
+// Potentiometer        potV2         H               
+// hang                 digital_out   G               
+// pod                  rotation      15              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Drive1               motor         20              
+// Drive2               motor         19              
+// Drive3               motor         17              
+// Drive4               motor         12              
+// Drive5               motor         13              
+// Drive6               motor         14              
+// Controller1          controller                    
+// InertialSensor       inertial      16              
+// clamp                digital_out   A               
+// Intake               motor         10              
+// doink                digital_out   B               
+// Rotation3            rotation      3               
+// lift                 motor_group   2, 4            
+// Optical              optical       9               
+// Potentiometer        potV2         H               
+// hang                 digital_out   G               
+// pod                  rotation      15              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Drive1               motor         20              
+// Drive2               motor         19              
+// Drive3               motor         17              
+// Drive4               motor         12              
+// Drive5               motor         13              
+// Drive6               motor         14              
+// Controller1          controller                    
+// InertialSensor       inertial      16              
+// clamp                digital_out   A               
+// Intake               motor         10              
+// doink                digital_out   B               
+// Rotation3            rotation      3               
+// lift                 motor_group   2, 4            
+// Optical              optical       9               
+// Potentiometer        potV2         H               
+// hang                 digital_out   G               
+// pod                  rotation      15              
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Drive1               motor         20              
+// Drive2               motor         19              
+// Drive3               motor         17              
+// Drive4               motor         12              
+// Drive5               motor         13              
+// Drive6               motor         14              
+// Controller1          controller                    
+// InertialSensor       inertial      16              
+// clamp                digital_out   A               
+// Intake               motor         10              
+// doink                digital_out   B               
+// Rotation3            rotation      3               
+// lift                 motor_group   2, 4            
+// Optical              optical       9               
+// Potentiometer        potV2         H               
+// hang                 digital_out   G               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Drive1               motor         20              
+// Drive2               motor         19              
+// Drive3               motor         17              
+// Drive4               motor         12              
+// Drive5               motor         13              
+// Drive6               motor         14              
+// Controller1          controller                    
+// InertialSensor       inertial      16              
+// clamp                digital_out   A               
+// Intake               motor         10              
+// doink                digital_out   B               
+// Rotation3            rotation      3               
+// lift                 motor_group   2, 4            
+// Optical              optical       9               
+// Potentiometer        potV2         H               
+// hang                 digital_out   G               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Drive1               motor         20              
+// Drive2               motor         19              
+// Drive3               motor         17              
+// Drive4               motor         12              
+// Drive5               motor         13              
+// Drive6               motor         14              
+// Controller1          controller                    
+// InertialSensor       inertial      16              
+// clamp                digital_out   A               
+// Intake               motor         10              
+// doink                digital_out   B               
+// Rotation3            rotation      3               
+// lift                 motor_group   2, 4            
+// Optical              optical       9               
+// Potentiometer        potV2         H               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
 // Drive1               motor         11              
 // Drive2               motor         12              
 // Drive3               motor         14              
@@ -19,10 +293,12 @@
 using namespace vex;
 competition Competition;
 bool ClampState = false;
+bool HangState = false;
 bool autonRingdetector =true;
-bool colorStop = false;
+bool activateStop = false;
 
 color detectColor = Optical.color();
+double hue = Optical.hue();
 
 void Driver()
 {
@@ -44,20 +320,6 @@ void whenStarted()
   enableDrivetrain();
 }
 
-int colorstop()
-{
-  while(true){
-  if(Optical.hue() >= 0 && Optical.hue() <= 45 && colorStop == true){
-    Intake.stop(brake);
-    printf("WORK");
-  }
-  else
-  {
-    return 0;
-  }
-}
-}
-
 void IntakeIn(){Intake.spin(forward, 11 , voltageUnits::volt);}
 void IntakeOut(){Intake.spin(forward, -11 , voltageUnits::volt);}
 void IntakeStop(){Intake.spin(forward, 0 , voltageUnits::volt);}
@@ -76,7 +338,7 @@ void liftingstop(){
 
 int liftPloop(){
   double kp = .3;//0.03055555555
-  double Fdeg = -21;//-24//-21//
+  double Fdeg = -25;//-24//-21//
   double tolerance = 1; // Set a tolerance to avoid overshooting
   double runTimesec= .5;
   int exitTimer = 0;
@@ -178,6 +440,13 @@ void retractDoink(){
   doink.set(false);
 }
 
+void liftIntake(){
+  IntakeLift.set(true);
+}
+void dropIntake(){
+  IntakeLift.set(false);
+}
+
 void Clamping(){
   if(ClampState == false){
     clamp.set(true);
@@ -189,42 +458,63 @@ void Clamping(){
   }
 }
 
-int segregateRed()
+void Hanging(){
+  if(HangState == false){
+    hang.set(true);
+    HangState = true;
+  }
+  else if(HangState == true){
+    hang.set(false);
+    HangState = false;
+  }
+}
+
+
+int colorstop()
 {
-  //blue ring is 200-210 hyue
-  //red  is 5-20 ue
-  if(detectColor >= 1 ||  detectColor <=30){
-   wait( 880, msec);
-  IntakeOut();
-  wait( 200, msec);
-  IntakeStop();
+  // task activateColorStop(colorstop); //enable the task to run in background
+  // activateStop = true
+  //true will cause the next ring inteked to stop regradless of color false will not stop anythign
+  //distance based stop
+  //can be put anywhere rlly the import part is the tru or false bit
+  while(true){
+    Optical.setLight(ledState::on);
+    if(activateStop){
+      Optical.objectDetected(IntakeStop);
+      //printf("%f \n", hue);
+    }
+    
   }
 
-  return 0;
 }
 
-int senseRing(){
-  int curRing = detectColor;
-  printf("\n %d ", curRing);
-  if(autonRingdetector == true){
-    if(curRing >= 1 &&  curRing <=22)
-    IntakeStop();
+int colorStopBlue(){
+  while(true){
+    Optical.setLight(ledState::on);
+    double hue = Optical.hue();
+    printf("%f \n", hue);
+    if(hue >= 200 && hue<= 218){
+      wait(200, msec);
+      IntakeOut();
+    }
   }
-  else{
-    return 0;
+}
+//flicks
+//the more advance color stop that uses color instead of nearest
+//put task enemyColor(colorStopBlue || colorStopred); at start of auton to flick oposing color ring away (flick motion not finsihed)
+//colorStopBlue stops blue t
+int colorStopRed(){
+  while(true){
+    Optical.setLight(ledState::on);
+    double hue = Optical.hue();
+    printf("%f \n", hue);
+    if(hue >= 12 && hue<= 25){
+      IntakeStop();
+      wait(200, msec);
+      IntakeOut();
+    }
   }
-
-  return 0;
 }
-
-
-void segregateBlue(){
-
-
-  wait( 0.5, sec);
-  IntakeStop();
-}
-
 
 //positive side blue solo AWP no alliance stake
 void Auton1()
@@ -431,40 +721,73 @@ void Auton4()
 {
   driveHold();
   setMoveConstants(2.4,0.4);
-  move(-24);
+  move(-24);/////
   clamp.set(true);
   IntakeIn();
   move(-6);
   turn(90);///
-  move(24);
-  turn(200);///
+  move(20);//22
+  IntakeStop();
+  turn(190);///200
+  IntakeIn();//
   move(13);
-  move(-7);
-  turn(170);////
-  move(7);
+  move(-11);//weee
+  turn(169);////
+  move(11);
   wait(850, msec);
-  move(-31);
-  turn(45);///
-  move(21);
-  wait(500, msec);
-  move(-24);
-  turn(-105);///
-  turn(180);
+  move(-32);
+  turn(265);///
+  move(26);
+  clamp.set(false);
+  IntakeStop();
+  // wait(500, msec);
+  // move(-24);
+  // turn(-105);///
+  // turn(180);
+ // move(30);
+}
+
+void BNeg4(){
+  driveHold();
+  setMoveConstants(2.4,0.4);
+  move(-24);/////
+  clamp.set(true);
+  IntakeIn();
+  move(-6);
+  turn(-90);///
+  move(20);//22
+  IntakeStop();
+  turn(-190);///200
+  IntakeIn();//
+  move(13);  //2 piece
+  move(-11);//weee
+  turn(-170);////
+  move(11);
+  wait(850, msec);
+  move(-35);
+  turn(-266);///
+  move(27);
+  clamp.set(false);
+  // wait(500, msec);
+  // move(-24);
+  // turn(-105);///
+  // turn(180);
  // move(30);
 }
 
 void skillsAuton()
 {
-  task colorstop;
+  //task colorstop;
   IntakeIn();
   wait(500, msec);
   swingRight(36);
   move(34);
-  turn(67);
-  colorStop = true;
+  wait(500, msec);
   IntakeStop();
+  turn(67);
+  //colorStop = true;
   move(-45);  //need to figure out way to stop intake b4 here or make it back b4 going back
-  colorStop = false;
+  //colorStop = false;
   clamp.set(true);
   IntakeIn();
   turn(-8);
@@ -473,9 +796,9 @@ void skillsAuton()
   move(23);
   turn(-178);
   //setMovePowerLimit(66);
-  move(24);
-  wait(300, msec);
-  move(12);
+  move(38);
+  //wait(300, msec);
+  //move(12);
   //move(-12);
   turn(-45);
   move(12);
@@ -484,46 +807,47 @@ void skillsAuton()
   move(-11);
   //turn(45);
   IntakeOut();
+  //2ND stake
   //turn(-90);
   // //swingLeft(.2);//later change this bith so that after it gets the 2nd ring in line it just turns to the 3rd grabs its and rotate
   // turn(45);
   // move(-9);
   clamp.set(false);
-  wait(300, msec);
   turn(48);//news
   IntakeIn();
-  colorStop = true;
-  move(82);
+  move(83);
   IntakeStop();
   turn(-23);//center to stake rjsn
   //IntakeStop();//try right after move80 
   move(-51);
-  colorStop = false;
   clamp.set(true);
   IntakeIn();
   turn(45);
-  move(30);
+  move(36);
   turn(30);
-  move(28);
+  move(25);
+  move(-27);
+  turn(178);
+  move(35);
   //wait(200, msec);
-  move(-19);
-  turn(180);
-  move(23);
-  wait(300, msec);
-  move(16);
-  turn(50);
-  move(14);
-  turn(-22);
+  turn(45);
+  move(12);
+  turn(-24);
   move(-11);
-  //turn(-46);
-  IntakeOut();
   clamp.set(false);
+  turn(-25);
+  //move(50);
+  //turn(-22);
+  //move();
+  //turn(-46);
+  //IntakeOut();
+  //clamp.set(false);
   wait(300, msec);
-  turn(-9);
+  //turn(30);
   IntakeIn();
   //enable friction mech
   //ploopyActivate();
-  move(82);
+  move(100);
   //wall stake shit
   // wait(200, msec);
   // move(-25);
@@ -540,15 +864,16 @@ void skillsAuton()
   //move(-24);
   //clamp.set(true);
   //turn(-120);
-  turn(-90);
-  wait(300, msec);
-  colorStop = true;
-  move(30);
   IntakeStop();
-  turn(-218);
+  turn(90);
+  wait(300, msec);
+  IntakeIn();
+  move(26);
+  IntakeStop();
+  turn(-270);
   //IntakeStop();
   move(-29);
-  colorStop = false;
+  
   //wait(100, msec);
   clamp.set(true);
   IntakeIn();
@@ -574,16 +899,63 @@ void skillsAuton()
   move(-111);
 }
 
-
+void autonPOSBSAWP(){
+  driveHold();
+  setMoveConstants(2.4,0.4);
+  //setMoveThreshold(0.2);
+  move(-24);
+  clamp.set(true);
+  IntakeIn();
+  wait(0.7, sec);
+  turn(105);
+  IntakeIn();
+  move(17);
+  wait(1150, msec);
+  turn(-64.3);
+  wait(200,msec);
+  clamp.set(false);
+  liftIntake();//extend
+  
+  move(36);
+  wait(200, msec);
+  dropIntake();//retracta
+  task activateColorStop(colorstop); //enable the task to run in background
+  activateStop = true;
+  wait(500,msec);
+  move(-7);
+  activateStop = false;
+  wait(500,msec);
+  turn(-180);
+  move(-14);
+  extendDoink();
+  swingRight(90);
+  move(5.9);
+  turn(180);
+  move(-7);
+  IntakeIn();
+  retractDoink();
+  wait(1, sec);
+  move(29);
+  
+}
 
 void testAuton(){
-  ploopyActivate();
   IntakeIn();
-  wait(2, sec);
-  IntakeStop();
-  scoreLift();
-  wait(200, msec);
-  resetLift();
+  //used for one picking and holding one of ours the other is for flicking
+  task activateColorStop(colorstop); //enable the task to run in background
+  wait(5, sec);
+  activateStop = true; //true will cause the next ring inteked to stop regradless of color false will not stop anythign
+
+  // task activateColorStop(colorstop); //enable the task to run in background
+  // activateStop = true
+}
+
+void testAuton2(){
+  //the more advance color stop that uses color instead of nearest
+  //put task enemyColor(colorStopBlue || colorStopred); at start of auton to flick oposing color ring away (flick motion not finsihed)
+  //colorStopBlue stops blue t
+  task enemyColor(colorStopBlue);
+  IntakeIn();
 }
 
 void AutonSelector(){
@@ -609,12 +981,9 @@ void AutonSelector(){
   }
 }
 
-// void ploopyActivate()
-// {
-//   task liftPloopyTask(liftPloop);
-// }
-
-
+void testTurn(){
+  turn(90);
+}
 
 int main() 
 {
@@ -636,8 +1005,10 @@ int main()
   Controller1.ButtonL2.released(liftingstop);
 
   Controller1.ButtonLeft.pressed(ploopyActivate);
-  //Controller1.ButtonA.pressed(testTurn);
+
+  Controller1.ButtonB.pressed(Hanging);
+  Controller1.ButtonA.pressed(testTurn);
   Competition.drivercontrol(Driver);
-  Competition.autonomous(Auton4);
+  Competition.autonomous(autonPOSBSAWP);
   //Competition.autonomous(AutonSelector); //for potentiometer
 }

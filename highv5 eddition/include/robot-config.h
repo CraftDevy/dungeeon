@@ -18,6 +18,9 @@ extern rotation Rotation3;
 extern motor_group lift;
 extern optical Optical;
 extern potV2 Potentiometer;
+extern digital_out hang;
+extern rotation pod;
+extern digital_out IntakeLift;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.
